@@ -37,7 +37,7 @@ const fetchPosts = async (token: string): Promise<Data[]> => {
       throw new Error(await response.text());
     }
 
-    const json = await response.json();
+    const json = await response.json() as { data: Data[] };
 
     return json.data;
   } catch (error) {
